@@ -9,6 +9,8 @@
     <p>Play FM from a rtl-tcp stream with a simple interface</p>
 </div>
 
+![](readme_assets/tiny_sdr_RX.png)
+
 ## Features
 
 - Connect to RTL-TCP servers for live FM radio streaming
