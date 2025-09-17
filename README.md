@@ -7,9 +7,9 @@
     />
     <h1 align="center">TinySDR</h1>
     <p>Play FM from a rtl-tcp stream with a simple interface</p>
+    <img src="readme_assets/tiny_sdr_RX.png">
 </div>
 
-![](readme_assets/tiny_sdr_RX.png)
 
 ## Features
 
