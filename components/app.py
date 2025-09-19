@@ -24,8 +24,8 @@ class App:
         self.menu_btn = Button(20, 10, 60, 25, "Host", self.panel.toggle)
         self.vu_meter = VUMeter(20, WINDOW_HEIGHT - 50, 200, 20)
 
-        self.host_input = Input(20, 40, 120, self.config['host'], self.set_host, True)
-        self.port_input = Input(20, 80, 120, str(self.config['port']), self.set_port, True)
+        self.host_input = Input(20, 45, 120, self.config['host'], self.set_host, True)
+        self.port_input = Input(20, 85, 120, str(self.config['port']), self.set_port, True)
         self.apply_btn = Button(20, 200, 120, 30, "APPLY", self.apply_settings)
 
 
@@ -162,10 +162,10 @@ class App:
                 panel_x = int(self.panel.x)
                 pr.draw_text("SETTINGS", panel_x + 20, 20, 16, FG)
 
-                pr.draw_text("Host:", panel_x + 20, 28, 12, DIM)
+                pr.draw_text("Host:", panel_x + 20, 33, 12, DIM)
                 self.host_input.draw()
 
-                pr.draw_text("Port:", panel_x + 20, 68, 12, DIM)
+                pr.draw_text("Port:", panel_x + 20, 73, 12, DIM)
                 self.port_input.draw()
                 self.apply_btn.draw()
 
