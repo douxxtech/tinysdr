@@ -6,7 +6,7 @@
       style="border-radius: 20px; overflow: hidden;"
     />
     <h1 align="center">TinySDR</h1>
-    <p>Play FM from a rtl-tcp stream with a simple interface</p>
+    <p>Play and transmit FM from the most simple interface</p>
     <img src="readme_assets/tiny_sdr_RX.png">
 </div>
 
@@ -29,6 +29,7 @@
 - NumPy
 - SciPy
 - RTL-SDR compatible device with RTL-TCP server
+- Raspberry pi 4 or lower (optional, but required for TX)
 
 ## Installation
 
