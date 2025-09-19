@@ -35,7 +35,9 @@
 
 1. Install the required dependencies & clone the git repo:
 ```bash
-pip install pyaudio pyray numpy scipy piwave
+pip install pyaudio pyray numpy scipy
+# if on a raspberry pi:
+# curl -sL https://setup.piwave.xyz/ | sudo bash
 git clone https://github.com/douxxtech/tinysdr
 ```
 
