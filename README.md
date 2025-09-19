@@ -19,7 +19,7 @@
 - Configurable host/port settings
 - Hardware AGC support
 - Clean, minimal interface
-> Broadcast radio if on a Raspberry Pi (NOT SUPPORTED ATM)
+- Broadcast radio if on a Raspberry Pi
 
 ## Requirements
 
@@ -34,7 +34,7 @@
 
 1. Install the required dependencies & clone the git repo:
 ```bash
-pip install pyaudio pyray numpy scipy
+pip install pyaudio pyray numpy scipy piwave
 git clone https://github.com/douxxtech/tinysdr
 ```
 
@@ -48,11 +48,23 @@ rtl_tcp -a 127.0.0.1 -p 1234
 1. Run the application:
 ```bash
 python main.py
+# run as root if you plan to TX
 ```
 
+> [!NOTE]
+> Change mode by swiping up and down !  
+> RX theme is red, TX is black
+
+### For RX (reception)
 2. Click "Connect" to connect to your RTL-TCP server
 3. Use the frequency knob to tune to your desired FM station
-4. Adjust host/port settings via the "Host" menu if needed
+4. Adjust host/port settings via the "CFG" menu if needed
+
+### For TX (transmition)
+2. Click "Select file" to select a wave or mp3 file.
+3. Use the frequency knob to tune to your desired broadcast frequency
+4. Adjust RDS station name / desc settings via the "CFG" menu if needed
+
 
 ## Configuration
 
@@ -60,13 +72,9 @@ The app automatically saves your settings to `config.json`:
 - Host IP address
 - Port number  
 - Last tuned frequency
+- Station name
+- Station description
 
-## Controls
-
-- **Frequency Knob**: Click and drag to tune between 88-108 MHz
-- **Connect Button**: Toggle connection to RTL-TCP server
-- **Host Menu**: Access network settings panel
-- **VU Meter**: Shows real-time audio signal strength
 
 ---
 

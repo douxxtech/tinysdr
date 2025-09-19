@@ -1,19 +1,23 @@
 import pyray as pr
 import math
-from .colors import     ACCENT, BG
+from .colors import *
 
 class Knob:
-    def __init__(self, x, y, r, value=100.0, callback=None):
+    def __init__(self, x, y, r, mode, value=100.0, callback=None):
         self.x, self.y, self.r = x, y, r
         self.value = value
         self.callback = callback
         self.dragging = False
-        self.angle = 0.0
         self.min_freq = 88.0
         self.max_freq = 108.0
 
+        value_normalized = (self.value - self.min_freq) / (self.max_freq - self.min_freq)  # 0..1
+        self.angle = (value_normalized - 0.5) * 2 * math.pi
+
+        self.colors = get_current_colors(mode)
+
     def draw(self):
-        pr.draw_circle(self.x, self.y, self.r, ACCENT)
+        pr.draw_circle(self.x, self.y, self.r, self.colors["accent"])
 
         self.draw_frequency_scale()
 
@@ -30,7 +34,7 @@ class Knob:
         pr.draw_line_ex(pr.Vector2(start_x, start_y),
                         pr.Vector2(end_x, end_y),
                         3,
-                        BG)
+                        self.colors["bg"])
 
     def draw_frequency_scale(self):
 
@@ -51,7 +55,7 @@ class Knob:
             text_x -= text_width // 2
             text_y -= 5
             
-            pr.draw_text(freq_text.encode(), text_x, text_y, 13, ACCENT)
+            pr.draw_text(freq_text.encode(), text_x, text_y, 13, self.colors["accent"])
 
     def update(self):
         mouse = pr.get_mouse_position()

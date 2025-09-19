@@ -1,8 +1,8 @@
 import pyray as pr
-from .colors import FG, DIM, ACCENT
+from .colors import *
 
 class Input:
-    def __init__(self, x, y, w, value, callback=None, realtime=False):
+    def __init__(self, x, y, w, value, mode, callback=None, realtime=False):
         self.x, self.y, self.w = x, y, w
         self.value = str(value)
         self.active = False
@@ -10,15 +10,16 @@ class Input:
         self.callback = callback
         self.realtime = realtime
         self.blink = 0
+        self.colors = get_current_colors(mode)
 
     def draw(self):
-        color = ACCENT if self.active else DIM
+        color = self.colors["accent"] if self.active else self.colors["dim"]
         pr.draw_rectangle_lines(self.x, self.y, self.w, 20, color)
-        pr.draw_text(self.value.encode(), self.x + 4, self.y + 2, 16, FG)
+        pr.draw_text(self.value.encode(), self.x + 4, self.y + 2, 16, self.colors["fg"])
         
         if self.active and (self.blink // 30) % 2:
             cx = self.x + 4 + pr.measure_text(self.value[:self.cursor].encode(), 16)
-            pr.draw_line(cx, self.y + 2, cx, self.y + 18, ACCENT)
+            pr.draw_line(cx, self.y + 2, cx, self.y + 18, self.colors["accent"])
         self.blink += 1
 
     def update(self):

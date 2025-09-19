@@ -1,5 +1,5 @@
 import pyray as pr
-from .colors import DIM
+from .colors import RX_DIM # as vu is only into rx we dont need to get_current_colors
 
 class VUMeter:
     def __init__(self, x, y, w, h):
@@ -13,7 +13,7 @@ class VUMeter:
         self.level = max(0.0, min(1.0, value))
 
     def draw(self):
-        pr.draw_rectangle_lines(self.x, self.y, self.w, self.h, DIM)
+        pr.draw_rectangle_lines(self.x, self.y, self.w, self.h, RX_DIM)
 
         for i in range(int(self.w * self.level)):
             t = i / self.w  # 0.0 -> 1.0
