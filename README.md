@@ -1,7 +1,7 @@
 <div align="center">
     <img
       alt="Image of this repo"
-      src="https://togp.xyz?owner=douxxtech&repo=tinysdr&cache=false"
+      src="https://togp.douxx.tech?owner=douxxtech&repo=tinysdr&cache=false"
       type="image/svg+xml"
       style="border-radius: 20px; overflow: hidden;"
     />
@@ -83,5 +83,6 @@ The app automatically saves your settings to `config.json`:
 
 ## License
 Licensed under [GPLv3.0](LICENSE)
+
 
 ![Made by Douxx](https://madeby.douxx.tech)
